@@ -18,10 +18,12 @@
 <body>
 
 <%
-Subcription userSubs = SubcriptionController.getUserSubcriptions(UsernameSession);
-ArrayList<Ads> ads = new ArrayList<Ads>();
-ads = MyAdsController.retrieveMyAds(userSubs);
 
+Subcription userSubs = SubcriptionController.getUserSubcriptions(UsernameSession);
+
+ArrayList<Ads> ads = new ArrayList<Ads>();
+ads = AdsManager.retrieveMyAds("yes");
+	
 if(ads == null){
 
 	out.print("Sorry, you have not saved any Ads yet");	
@@ -47,7 +49,7 @@ else{
 		out.print("</td></tr> <tr> <td>");
 		out.print(" <br> valid from " +a.getStartDate() + " to " + a.getEndDate() + "</td>");
 		out.print("</td></tr> <tr> <td>");
-		out.print(" </br> Saved Ad: " +a.getSavedAd() + "</td>");
+		out.print("<br>  <button type='button'>Remove from Saved Ads</button>");
 		out.print("</td></tr> </table>");
 		//out.print(" <br>" +a.getImage()); // other details , use ads.model class
 		//out.print(" <br>" +a.getImage());
