@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+table
+{
+border-collapse:collapse;
+alignment-adjust:middle
+}
+
+th
+{
+	background-color:green;
+	color:white;
+}
+
+
+
+ul
+{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+
+li
+{
+	float:left; /*ensure same size*/
+}
+
+a
+{
+	display:block;
+	width:5em;
+	color:white;
+}
+
+a:link
+{
+	text-decoration:none;
+}    /* unvisited link */
+
+a:hover 
+{
+	text-decoration:none;
+	background-color:#090;
+}  
+   /* mouse over link */
+   
+.middlePage
+{
+position:absolute;
+left:35%;
+top:30%;
+}
+
+
+.loginButton 
+{
+    background:url(Images/loginButton.jpg) no-repeat;
+    cursor:pointer;
+    width: 3.2em;
+    height: 1.875em;
+    border: none;
+}
+.searchButton 
+{
+    background:url(Images/findbutton.jpg) no-repeat;
+	cursor:pointer;
+    width: 2.2em;
+    height: 2.4em;
+    border: none;
+}
+.searchBox {
+    background:url(Images/searchBox.jpg) no-repeat;
+    cursor:pointer;
+    width: 3.2em;
+    height: 1.875em;
+    border: none;
+}
+#textboxid
+{
+    height:35px;
+    width:12em;
+    font-size:14pt;
+}
+.none
+{
+		text-decoration:none;
+		background-color:Green;
+}

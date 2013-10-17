@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("authentication",user.getUsername());
 			SubcriptionManager sM= new SubcriptionManager();
-			AdsManager aM = new AdsManager();
+
 			RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 			dispatcher.forward(request,response);
 			

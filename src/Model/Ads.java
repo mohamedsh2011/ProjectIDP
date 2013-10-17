@@ -9,9 +9,10 @@ public class Ads {
 	private String endDate;
 	private String description;
 	private String cat;
+	private String savedAd;
 
 
-	public Ads(String A,String B ,String C ,String D ,String E ,String F, String H){
+	public Ads(String A,String B ,String C ,String D ,String E ,String F, String H, String I){
 		name = A;
 		producer = B;
 		image = C;
@@ -19,7 +20,7 @@ public class Ads {
 		endDate = E;
 		description = F;
 		cat = H;
-		
+		savedAd = I;
 		
 	}
 	
@@ -48,6 +49,9 @@ public class Ads {
 	}
 	public String getCat(){
 		return cat;
+	}
+	public String getSavedAd(){
+		return savedAd;
 	}
 
 
