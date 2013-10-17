@@ -4,15 +4,15 @@
     <th width="22%" height="81" scope="col">
     	<ul>
 			<li><a href="home.jsp">Home</a></li>
-            <li><a href="#home">Trend</a></li>
-            <li><a href="#home">My Ads</a></li>
+            <li><a href="trend.jsp">Trend</a></li>
+            <li><a href="myAds.jsp">My Ads</a></li>
       </ul>
             
     </th>
     <th width="44%" align="left" scope="col">
-    <form id="form1" name="form1" method="post" action="searchFUNCTION-HERE.DO">
-    <input name="Searchfor" type="text" />
-    <input name="" type="submit" value ="Find" />
+    <form id="form1" method="get" action="SearchServlet.do">
+    <input name="searchQuery" type="text" />
+    <input type="submit" value ="Find" />
     </form>
 
 

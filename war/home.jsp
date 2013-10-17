@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="SelfMade.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Home</title>
 </head>
 
 <body>
