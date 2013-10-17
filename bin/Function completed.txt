@@ -1,0 +1,17 @@
+Able to log in : John/123
+Able to see subcription at home page : Default for john is Telecom
+go to Settings to change subcription ( PW/USER edit disabled because of hardcoded data - if you log out , u have the old pw still )
+After change in subcription, the home page will reflect the new subcription live.
+Log out feature will invalidate rights.
+
+Things not done .
+Trend -  Static page , too much affect to do dynamic analytics.
+Search function to search.
+
+
+
+Ads - all ads
+AdsManager - list of all ads.
+
+subcription : User and a list of all subcription categories
+subcription manager - a list of all user's subcription
