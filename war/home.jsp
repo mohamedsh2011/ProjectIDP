@@ -97,6 +97,12 @@ else{
 		out.print(" <br>" +a.getCat() +"");
 		out.print("</td></tr> <tr> <td>");
 		out.print(" <br> valid from " +a.getStartDate() + " to " + a.getEndDate() +"</td>");
+		out.print("</td></tr> <tr> <td>");
+		if(a.getSavedAd()=="yes"){
+		out.print("<br>  <button type='button'>Remove from Saved Ads</button>");
+		} else{
+		out.print("<br> <button type='button'>Save this ad!</button>");
+		}
 		out.print("</td></tr> </table>");
 		//out.print(" <br>" +a.getImage()); // other details , use ads.model class
 		//out.print(" <br>" +a.getImage());
