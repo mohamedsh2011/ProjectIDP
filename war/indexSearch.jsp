@@ -40,10 +40,11 @@ if(error!=null){
 <%
 
 ArrayList<Ads> queryResult = (ArrayList<Ads>)request.getAttribute("searchResult");
-if(queryResult == null){
-	out.print("<h2> <center> Your search query yielded no results :( <br> Here are some of our featured ads !  </center></h2>");
+System.out.println(queryResult);
+if(queryResult.size()==0){
+	out.print("<h2> <center><font face='Helvetica'> Your search query yielded no results :( <br> Why not try 'Ice-Cream' or 'Telecom'? </font> </center></h2>");
 	%>
-	
+	<!-- 
 	<table border = '3' align = 'center'>
 		<center>
 		<td><img src="/Ads/featured/default.jpg" alt="some_text"><br></br></td>
@@ -65,13 +66,13 @@ if(queryResult == null){
 		<tr>
 		</tr>		
 	</table>
-	
+	-->
 	<%
 	
 	
 }
 else{
-	out.print("Hi, your search is successful and here are the results!");
+	out.print("<h2><center><font face='Helvetica'>Hi, your search is successful and here are the results!</font></center></h2>");
 	
 	ArrayList<Ads> searchResult = (ArrayList<Ads>)request.getAttribute("searchResult");
 	System.out.println(searchResult);
