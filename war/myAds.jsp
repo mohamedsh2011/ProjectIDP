@@ -22,10 +22,9 @@
 Subcription userSubs = SubcriptionController.getUserSubcriptions(UsernameSession);
 
 ArrayList<Ads> ads = new ArrayList<Ads>();
-ads = AdsManager.retrieveMyAds("yes");
+ads = AdsController.retrieveMyAds();
 	
-if(ads == null){
-
+if(ads.isEmpty()){
 	out.print("Sorry, you have not saved any Ads yet");	
 }
 else{
@@ -48,20 +47,21 @@ else{
 		out.print(" <br>" +a.getCat() +"");
 		out.print("</td></tr> <tr> <td>");
 		out.print(" <br> valid from " +a.getStartDate() + " to " + a.getEndDate() + "</td>");
-		out.print("</td></tr> <tr> <td>");
-		out.print("<br>  <button type='button'>Remove from Saved Ads</button>");
+		out.print("</td></tr> <tr> <td>");	
+		out.print("<br> <form method='get' action='MyAdsServlet.do'>"
+				+ "<input type='hidden' name='removeAd' value='" + a.getName() + "'/>"
+				+ "<input type='hidden' name='page' value='myAds.jsp'/>"
+				+ "<input type='submit' name='button' id='button' value='Remove from Saved Ad'/>"
+				+ "</form>");
 		out.print("</td></tr> </table>");
-		//out.print(" <br>" +a.getImage()); // other details , use ads.model class
-		//out.print(" <br>" +a.getImage());
+		
 		counter++;
 		
 		if(counter == 3){
 			out.print("</tr><tr>");
 			counter = 0;
 		}
-		
 		System.out.print(a.getImage());
-		
 	}
 	out.print("</tr>");
 	out.print("</table>");
