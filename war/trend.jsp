@@ -27,57 +27,50 @@ else{
 	}
 
 %>
-<h2> <center> Take a look at some of our popular items :)!</center></h2>
-	<table border = '3' align = 'center'cellpadding='10'>
-		<center>
-		<td>1</td>
-		<td align="center"><img src="/Ads/trending/trend1.jpg" alt="some_text"></td>
-		<td><button type="button">Save this ad!</button></td>
-		</tr>
-		
-		<td>2</td>
-		<td align="center"><img src="/Ads/trending/trend2.jpg" alt="some_text"></td>
-		<td><button type="button">Save this ad!</button></td>
-		</tr>
-		
-		<td>3</td>
-		<td align="center"><img src="/Ads/trending/trend3.jpg" alt="some_text"></td>
-		<td><button type="button">Save this ad!</button></td>
-		</tr>
-		
-		<td>4</td>
-		<td align="center"><img src="/Ads/trending/trend4.jpg" alt="some_text"></td>
-		<td><button type="button">Save this ad!</button></td>
-		</tr>
-		
-		<td>5</td>
-		<td align="center"><img src="/Ads/trending/trend5.jpg" alt="some_text"></td>
-		<td><button type="button">Save this ad!</button></td>
-		</tr>
-		
-		<td>6</td>
-		<td align="center"><img src="/Ads/trending/trend6.jpg" alt="some_text"></td>
-		<td><button type="button">Save this ad!</button></td>
-		</tr>
-		
-		<td>7</td>
-		<td align="center"><img src="/Ads/trending/trend7.jpg" alt="some_text"></td>
-		<td><button type="button">Save this ad!</button></td>
-		</tr>
-		
-		<td>8</td>
-		<td align="center"><img src="/Ads/trending/trend8.jpg" alt="some_text"></td>
-		<td><button type="button">Save this ad!</button></td>
-		</tr>
-		
-		<td>9</td>
-		<td align="center"><img src="/Ads/trending/trend9.jpg" alt="some_text"></td>
-		<td><button type="button">Save this ad!</button></td>
-		</tr>
-		
-		<td>10</td>
-		<td align="center"><img src="/Ads/trending/trend10.jpg" alt="some_text"></td>
-		<td><button type="button">Save this ad!</button></td>
-		</tr>
-		
-	</table>
+
+<%
+	out.print("<h1><center>Take a look at some of our popular items :)!</center></h1>");
+	ArrayList<Ads>  ads= new ArrayList<Ads>();
+	ads = AdsController.retrieveAllAds();
+	System.out.println("Total Ads: " + ads.size());
+	String value = null;
+	
+	out.print( "<table border = '3' align = 'center'cellpadding='10'> ");
+	out.print( "<center>");
+	int counter = 1;
+	
+	for(Ads a: ads){
+		System.out.println("Each ad:" + a.getName());
+		if(a.trend().equals("yes")){
+			System.out.println("Each trend: " + a.trend());
+			out.print(" <td> " + counter + "</td>");
+			counter++;
+			out.print(" <td> <img src='"+a.getImage()+"' width='250' height='250'></td> ");
+			if(UsernameSession == null || UsernameSession.isEmpty()){
+			
+			}else {
+				out.print(" <td>");
+				value = AdsController.isSaved(a);
+				if(value.equals("yes")){
+				out.print("<form method='get' action='MyAdsServlet.do'>"
+					+ "<input type='hidden' name='removeAd' value='" + a.getName() + "'/>"
+					+ "<input type='hidden' name='page' value='trend.jsp'/>"
+					+ "<input type='submit' name='button' id='button' value='Remove from Saved Ad'/>"
+					+ "</form>");
+				} else{
+				out.print("<form method='get' action='MyAdsServlet.do'>"
+					+ "<input type='hidden' name='addAd' value='" + a.getName() + "'/>"
+					+ "<input type='hidden' name='page' value='trend.jsp'/>"
+					+ "<input type='submit' name='button' id='button' value='Save this Ad!'/>"
+					+ "</form>");
+				}
+				out.print("</td>");
+			}
+		}
+		out.print("</tr>");
+	}
+	
+	out.print("</table>");
+	out.print("</center>");
+
+%>
