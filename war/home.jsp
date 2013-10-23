@@ -79,14 +79,13 @@ else{
 	out.print("Hi, here are you subcriptions !! :D");
 	ArrayList<Ads>  ads= new ArrayList<Ads>();
 	ads = AdsController.retrieveAds(userSubs);
+	String value = null;
 	
 	out.print( "<table border = '3' align = 'center'> ");
 	out.print("<tr>");
 	int counter = 0;
 	
 	for(Ads a: ads){
-		
-		
 		out.print(" <td> <img src='"+a.getImage()+"' width='250' height='250'> ");
 		out.print("<table>");
 		out.print("<tr><td>");
@@ -97,15 +96,24 @@ else{
 		out.print(" <br>" +a.getCat() +"");
 		out.print("</td></tr> <tr> <td>");
 		out.print(" <br> valid from " +a.getStartDate() + " to " + a.getEndDate() +"</td>");
-		out.print("</td></tr> <tr> <td>");
-		if(a.getSavedAd()=="yes"){
-		out.print("<br>  <button type='button'>Remove from Saved Ads</button>");
+		out.print(" <br> valid from " +a.getStartDate() + " to " + a.getEndDate() +"</td>");
+		out.print("</td></tr> <tr> <td>");	
+		value = AdsController.isSaved(a);
+		if(value.equals("yes")){
+		out.print("<br> <form method='get' action='MyAdsServlet.do'>"
+				+ "<input type='hidden' name='removeAd' value='" + a.getName() + "'/>"
+				+ "<input type='hidden' name='page' value='home.jsp'/>"
+				+ "<input type='submit' name='button' id='button' value='Remove from Saved Ad'/>"
+				+ "</form>");
 		} else{
-		out.print("<br> <button type='button'>Save this ad!</button>");
+		out.print("<br> <form method='get' action='MyAdsServlet.do'>"
+				+ "<input type='hidden' name='addAd' value='" + a.getName() + "'/>"
+				+ "<input type='hidden' name='page' value='home.jsp'/>"
+				+ "<input type='submit' name='button' id='button' value='Save this Ad!'/>"
+				+ "</form>");
 		}
 		out.print("</td></tr> </table>");
-		//out.print(" <br>" +a.getImage()); // other details , use ads.model class
-		//out.print(" <br>" +a.getImage());
+
 		counter++;
 		
 		if(counter == 3){
