@@ -10,9 +10,10 @@ public class Ads {
 	private String description;
 	private String cat;
 	private String savedAd;
+	private String trend;
 
 
-	public Ads(String A,String B ,String C ,String D ,String E ,String F, String H, String I){
+	public Ads(String A,String B ,String C ,String D ,String E ,String F, String H, String I, String J){
 		name = A;
 		producer = B;
 		image = C;
@@ -21,6 +22,7 @@ public class Ads {
 		description = F;
 		cat = H;
 		savedAd = I;
+		trend = J;
 		
 	}
 	
@@ -52,6 +54,9 @@ public class Ads {
 	}
 	public String getSavedAd(){
 		return savedAd;
+	}
+	public String trend(){
+		return trend;
 	}
 
 
