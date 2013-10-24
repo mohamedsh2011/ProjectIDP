@@ -1,4 +1,3 @@
-
 <%@ page import="Controller.*,Model.* , java.util.ArrayList" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,7 +21,15 @@ if(error!=null){
 %>
 
 
-<%AdsManager adsManager = new AdsManager();%>
+<% 
+ArrayList<Ads> ads = new ArrayList<Ads>();
+ads = AdsController.retrieveAllAds();
+if(ads.isEmpty()){
+	AdsManager adsManager = new AdsManager();
+}else{
+
+}
+%>
 
 
 <form action="SearchServlet.do" method="get" class ="middlePage">
