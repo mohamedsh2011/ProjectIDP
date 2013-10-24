@@ -24,6 +24,7 @@ if(error!=null){
 <% 
 ArrayList<Ads> ads = new ArrayList<Ads>();
 ads = AdsController.retrieveAllAds();
+AdsController.clearSavedAds();
 if(ads.isEmpty()){
 	AdsManager adsManager = new AdsManager();
 }else{
