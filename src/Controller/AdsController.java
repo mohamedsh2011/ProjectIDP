@@ -58,4 +58,8 @@ public class AdsController {
 		return value;
 	}
 	
+	public static void clearSavedAds(){
+		AdsManager.clearSavedAds();
+	}
+	
 }
