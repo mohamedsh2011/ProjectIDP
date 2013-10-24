@@ -153,6 +153,10 @@ public class AdsManager {
 			return value;
 		}
 		
+		public static void clearSavedAds(){
+			myAdsList.clear();
+		}
+		
 		public static void clearArray(){
 			adsList.removeAll(adsList);
 			
